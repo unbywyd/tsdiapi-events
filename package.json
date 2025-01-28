@@ -1,6 +1,6 @@
 {
   "name": "tsdiapi-events",
-  "description": "",
+  "description": "Event handling plugin for TSDIAPI-Server with TypeDI integration and type-safe decorators.",
   "version": "1.0.0",
   "main": "output/index.js",
   "types": "output/index.d.ts",
@@ -16,7 +16,16 @@
     "node": ">=18.19.0"
   },
   "keywords": [
-    "tsdiapi"
+    "tsdiapi",
+    "events",
+    "event-handling",
+    "plugin",
+    "typescript",
+    "typedi",
+    "decorators",
+    "socket",
+    "middleware",
+    "event-driven"
   ],
   "license": "MIT",
   "dependencies": {
