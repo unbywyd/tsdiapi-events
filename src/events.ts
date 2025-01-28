@@ -31,37 +31,19 @@ export class EventController<TEventPayloads extends Record<PropertyKey, unknown>
     }
 }
 
-/**
- * Utility function for dispatching events globally.
- */
 export function dispatchEvent<TEventPayloads extends Record<PropertyKey, unknown>, K extends keyof TEventPayloads>(
-    controllerClass: new () => EventController<TEventPayloads>,
     event: K,
     payload: TEventPayloads[K]
 ): void {
-    const controller = Container.get(controllerClass);
+    const controller = Container.get(EventController);
     controller.dispatch(event, payload);
 }
 
-/**
- * Decorator to subscribe a method to an event.
- * Similar to `@On()` in event-dispatch.
- */
-export function On<TEventPayloads extends Record<PropertyKey, unknown>, K extends keyof TEventPayloads>(
-    controllerClass: new () => EventController<TEventPayloads>,
-    event: K
-): MethodDecorator {
+export function On<TEventPayloads extends Record<PropertyKey, unknown>, K extends keyof TEventPayloads>(event: K): MethodDecorator {
     return (target, propertyKey, descriptor) => {
         const originalMethod = descriptor.value as Function;
-
-        /**
-         * Subscribe to the event during class initialization.
-         * When the event occurs, invoke the original method with the payload.
-         */
-        Container.get(controllerClass).on(event, (payload: TEventPayloads[K]) => {
-            // Retrieve the class instance from TypeDI container.
+        Container.get(EventController).on(event, (payload: TEventPayloads[K]) => {
             const instance = Container.get(target.constructor);
-            // Call the original method with the payload.
             originalMethod.call(instance, payload);
         });
 

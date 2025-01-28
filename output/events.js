@@ -67,28 +67,15 @@ exports.EventController = EventController;
 exports.EventController = EventController = __decorate([
     (0, typedi_1.Service)()
 ], EventController);
-/**
- * Utility function for dispatching events globally.
- */
-function dispatchEvent(controllerClass, event, payload) {
-    const controller = typedi_1.default.get(controllerClass);
+function dispatchEvent(event, payload) {
+    const controller = typedi_1.default.get(EventController);
     controller.dispatch(event, payload);
 }
-/**
- * Decorator to subscribe a method to an event.
- * Similar to `@On()` in event-dispatch.
- */
-function On(controllerClass, event) {
+function On(event) {
     return (target, propertyKey, descriptor) => {
         const originalMethod = descriptor.value;
-        /**
-         * Subscribe to the event during class initialization.
-         * When the event occurs, invoke the original method with the payload.
-         */
-        typedi_1.default.get(controllerClass).on(event, (payload) => {
-            // Retrieve the class instance from TypeDI container.
+        typedi_1.default.get(EventController).on(event, (payload) => {
             const instance = typedi_1.default.get(target.constructor);
-            // Call the original method with the payload.
             originalMethod.call(instance, payload);
         });
         return descriptor;
