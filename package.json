@@ -1,0 +1,47 @@
+{
+  "name": "tsdiapi-events",
+  "description": "",
+  "version": "1.0.0",
+  "main": "output/index.js",
+  "types": "output/index.d.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "author": {
+    "name": "Artyom Gorlovetskiy",
+    "url": "https://github.com/unbywyd",
+    "email": "unbywyd@gmail.com"
+  },
+  "engines": {
+    "node": ">=18.19.0"
+  },
+  "keywords": [
+    "tsdiapi"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "mitt": "^3.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.10",
+    "tsdiapi-server": "github:unbywyd/tsdiapi-server#master",
+    "typescript": "^5.7.2"
+  },
+  "peerDependencies": {
+    "reflect-metadata": "^0.1.13",
+    "typedi": "^0.10.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/unbywyd/tsdiapi-events.git"
+  },
+  "bugs": {
+    "url": "https://github.com/unbywyd/tsdiapi-events/issues"
+  },
+  "homepage": "https://github.com/unbywyd/tsdiapi-events#readme",
+  "files": [
+    "output/",
+    "README.md",
+    "LICENSE"
+  ]
+}
