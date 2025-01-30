@@ -9,7 +9,7 @@ Object.defineProperty(exports, "EventController", { enumerable: true, get: funct
 Object.defineProperty(exports, "dispatchEvent", { enumerable: true, get: function () { return events_2.dispatchEvent; } });
 Object.defineProperty(exports, "On", { enumerable: true, get: function () { return events_2.On; } });
 const defaultConfig = {
-    globEventsPath: "*.event{.ts,.js}",
+    autoloadGlobPath: "*.event{.ts,.js}",
 };
 class App {
     name = 'tsdiapi-events';
@@ -18,7 +18,7 @@ class App {
     context;
     constructor(config) {
         this.config = { ...config };
-        this.bootstrapFilesGlobPath = this.config.globEventsPath || defaultConfig.globEventsPath;
+        this.bootstrapFilesGlobPath = this.config.autoloadGlobPath || defaultConfig.autoloadGlobPath;
     }
     async onInit(ctx) {
         this.context = ctx;

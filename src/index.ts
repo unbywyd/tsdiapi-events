@@ -4,10 +4,10 @@ import { EventController } from "./events";
 export { EventController, dispatchEvent, On } from "./events";
 
 export type PluginOptions = {
-    globEventsPath: string;
+    autoloadGlobPath: string;
 }
 const defaultConfig: PluginOptions = {
-    globEventsPath: "*.event{.ts,.js}",
+    autoloadGlobPath: "*.event{.ts,.js}",
 }
 
 class App implements AppPlugin {
@@ -17,7 +17,7 @@ class App implements AppPlugin {
     context: AppContext;
     constructor(config?: PluginOptions) {
         this.config = { ...config };
-        this.bootstrapFilesGlobPath = this.config.globEventsPath || defaultConfig.globEventsPath;
+        this.bootstrapFilesGlobPath = this.config.autoloadGlobPath || defaultConfig.autoloadGlobPath;
     }
     async onInit(ctx: AppContext) {
         this.context = ctx;
