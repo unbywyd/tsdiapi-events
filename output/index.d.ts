@@ -1,5 +1,5 @@
 import "reflect-metadata";
-import { AppContext, AppPlugin } from "tsdiapi-server";
+import type { AppContext, AppPlugin } from "@tsdiapi/server";
 export { EventController, dispatchEvent, On } from "./events";
 export type PluginOptions = {
     autoloadGlobPath: string;
