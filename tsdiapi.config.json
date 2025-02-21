@@ -16,7 +16,8 @@
         {
           "source": "generators/base/*.*",
           "destination": ".",
-          "overwrite": false
+          "overwrite": false,
+          "isHandlebarsTemplate": true
         }
       ]
     }
