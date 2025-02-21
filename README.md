@@ -25,7 +25,7 @@ npm install @tsdiapi/events
 or using the CLI:
 
 ```bash
-tsdiapi add plugin events
+tsdiapi plugins add events
 ```
 
 ---
@@ -39,21 +39,21 @@ import { On, dispatchEvent } from "@tsdiapi/events";
 import { Service } from "typedi";
 
 export enum EventType {
-    onNewUser = "onNewUser",
-    onAccountCreated = "onAccountCreated",
+  onNewUser = "onNewUser",
+  onAccountCreated = "onAccountCreated",
 }
 
 export interface EventPayloads {
-    [EventType.onNewUser]: { userId: string; name: string };
-    [EventType.onAccountCreated]: { accountId: string };
+  [EventType.onNewUser]: { userId: string; name: string };
+  [EventType.onAccountCreated]: { accountId: string };
 }
 
 @Service()
 export class EventListener {
-    @On(EventType.onNewUser)
-    public handleNewUser(payload: EventPayloads[EventType.onNewUser]) {
-        console.log("New user:", payload.name);
-    }
+  @On(EventType.onNewUser)
+  public handleNewUser(payload: EventPayloads[EventType.onNewUser]) {
+    console.log("New user:", payload.name);
+  }
 }
 
 // Dispatch an event
@@ -71,7 +71,7 @@ import { createApp } from "@tsdiapi/server";
 import TSDIAPIEventsPlugin from "@tsdiapi/events";
 
 createApp({
-   plugins: [TSDIAPIEventsPlugin()],
+  plugins: [TSDIAPIEventsPlugin()],
 });
 ```
 
@@ -81,9 +81,9 @@ createApp({
 
 The plugin accepts the following option:
 
-| Option              | Type     | Default Value       | Description                            |
-|---------------------|----------|---------------------|----------------------------------------|
-| `autoloadGlobPath`  | `string` | `"*.event{.ts,.js}"` | Glob pattern for automatically loading event files. |
+| Option             | Type     | Default Value        | Description                                         |
+| ------------------ | -------- | -------------------- | --------------------------------------------------- |
+| `autoloadGlobPath` | `string` | `"*.event{.ts,.js}"` | Glob pattern for automatically loading event files. |
 
 Example:
 
@@ -91,25 +91,13 @@ Example:
 import TSDIAPIEventsPlugin from "@tsdiapi/events";
 
 createApp({
-   plugins: [
-      TSDIAPIEventsPlugin({
-         autoloadGlobPath: "*.event.ts", // Custom glob pattern
-      }),
-   ],
+  plugins: [
+    TSDIAPIEventsPlugin({
+      autoloadGlobPath: "*.event.ts", // Custom glob pattern
+    }),
+  ],
 });
 ```
-
----
-
-## CLI Command
-
-Add the plugin via the CLI:
-
-```bash
-tsdiapi add plugin events
-```
-
----
 
 ## Summary
 

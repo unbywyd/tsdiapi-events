@@ -1,0 +1,11 @@
+{
+  "name": "@tsdiapi/events",
+  "description": "Event handling plugin for TSDIAPI-Server with TypeDI integration and type-safe decorators.",
+  "files": [
+    {
+      "source": "files/*.ts",
+      "destination": "src/",
+      "overwrite": false
+    }
+  ]
+}
