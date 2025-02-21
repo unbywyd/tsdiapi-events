@@ -18,21 +18,6 @@
           "destination": ".",
           "overwrite": false
         }
-      ],
-      "args": [
-        {
-          "name": "name",
-          "description": "Name of the event plugin.",
-          "inquirer": {
-            "type": "input",
-            "message": "Enter the name of the event:"
-          },
-          "validate": {
-            "type": "string",
-            "minLength": 3,
-            "errorMessage": "Event name must be at least 3 characters long."
-          }
-        }
       ]
     }
   ]
