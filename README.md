@@ -30,6 +30,18 @@ tsdiapi plugins add events
 
 ---
 
+## Code Generation
+
+| Name   | Description                                          |
+| ------ | ---------------------------------------------------- |
+| `base` | Create a new event file with a basic event listener. |
+
+The **TSDIAPI-Events** plugin includes an event generator to streamline event creation. Use the `tsdiapi` CLI command to generate event files automatically:
+
+```bash
+tsdiapi generate events
+```
+
 ## Example Usage
 
 ### Define and Handle Events
