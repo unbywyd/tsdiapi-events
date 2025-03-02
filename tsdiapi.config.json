@@ -19,7 +19,16 @@
           "overwrite": false,
           "isHandlebarsTemplate": true
         }
+      ],
+      "postMessages": [
+        "✅ Base event structure has been generated successfully!",
+        "📌 You can now start defining your custom events and listeners.",
+        "💡 Check the current directory for the generated files."
       ]
     }
+  ],
+  "postMessages": [
+    "🚀 The @tsdiapi/events plugin has been successfully installed!",
+    "📌 Use 'tsdiapi generate events' to create the base event structure."
   ]
 }

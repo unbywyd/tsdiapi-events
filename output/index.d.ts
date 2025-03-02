@@ -2,7 +2,7 @@ import "reflect-metadata";
 import type { AppContext, AppPlugin } from "@tsdiapi/server";
 export { EventController, dispatchEvent, On } from "./events";
 export type PluginOptions = {
-    autoloadGlobPath: string;
+    autoloadGlobPath: string | false;
 };
 declare class App implements AppPlugin {
     name: string;

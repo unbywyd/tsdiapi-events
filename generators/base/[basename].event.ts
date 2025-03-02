@@ -1,23 +1,23 @@
 import { On, dispatchEvent} from "@tsdiapi/events";
 import { Service } from "typedi";
 
-export enum {{classname}}EventType {
-    on{{classname}} = "on{{classname}}",
+export enum {{className}}EventType {
+    on{{className}} = "on{{className}}",
 }
 
-export interface {{classname}}EventPayload {
-    [{{classname}}EventType.on{{classname}}]: Record<string, any>;
+export interface {{className}}EventPayload {
+    [{{className}}EventType.on{{className}}]: Record<string, any>;
 }
 
 @Service()
-export class {{classname}}Events {
-    @On({{classname}}EventType.on{{classname}})
-    public on{{classname}}(payload: {{classname}}EventPayload[{{classname}}EventType.on{{classname}}]) {
-        console.log(`{{classname}} ${payload.message}!`);
+export class {{className}}Events {
+    @On({{className}}EventType.on{{className}})
+    public on{{className}}(payload: {{className}}EventPayload[{{className}}EventType.on{{className}}]) {
+        console.log(`{{className}} ${payload.message}!`);
     }
 }
 
 setTimeout(() => {
     // Dispatch an event
-    dispatchEvent({{classname}}EventType.on{{classname}}, { message: "I am a buffalo" });
+    dispatchEvent({{className}}EventType.on{{className}}, { message: "I am a buffalo" });
 }, 1000);

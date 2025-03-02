@@ -18,7 +18,10 @@ class App {
     context;
     constructor(config) {
         this.config = { ...config };
-        this.bootstrapFilesGlobPath = this.config.autoloadGlobPath || defaultConfig.autoloadGlobPath;
+        this.bootstrapFilesGlobPath = this.config.autoloadGlobPath ? this.config.autoloadGlobPath : defaultConfig.autoloadGlobPath;
+        if (this.config.autoloadGlobPath === false) {
+            this.bootstrapFilesGlobPath = '';
+        }
     }
     async onInit(ctx) {
         this.context = ctx;
