@@ -1,13 +1,6 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.On = exports.EventController = void 0;
-exports.default = createPlugin;
-require("reflect-metadata");
-const events_1 = require("./events");
-var events_2 = require("./events");
-Object.defineProperty(exports, "EventController", { enumerable: true, get: function () { return events_2.EventController; } });
-Object.defineProperty(exports, "dispatchEvent", { enumerable: true, get: function () { return events_2.dispatchEvent; } });
-Object.defineProperty(exports, "On", { enumerable: true, get: function () { return events_2.On; } });
+import "reflect-metadata";
+import { EventController } from "./events.js";
+export { EventController, dispatchEvent, On } from "./events.js";
 const defaultConfig = {
     autoloadGlobPath: "*.event{.ts,.js}",
 };
@@ -25,10 +18,10 @@ class App {
     }
     async onInit(ctx) {
         this.context = ctx;
-        this.context.container.get(events_1.EventController);
+        this.context.container.get(EventController);
     }
 }
-function createPlugin(config) {
+export default function createPlugin(config) {
     return new App(config);
 }
 //# sourceMappingURL=index.js.map

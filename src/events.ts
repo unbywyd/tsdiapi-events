@@ -1,13 +1,14 @@
-import mitt, { Emitter } from "mitt";
-import Container, { Service } from "typedi";
+import mitt, { Emitter } from 'mitt'
+import { Service, Container } from "typedi";
 
+const mittFunc = "default" in mitt ? mitt.default : mitt;
 /**
  * Generic EventController to manage event handling.
  * Accepts a generic parameter TEventPayloads for event types and payloads.
  */
 @Service()
 export class EventController<TEventPayloads extends Record<PropertyKey, unknown>> {
-    private emitter: Emitter<TEventPayloads> = mitt<TEventPayloads>();
+    private emitter: Emitter<TEventPayloads> = mittFunc<TEventPayloads>();
 
     public on<K extends keyof TEventPayloads>(
         event: K,
