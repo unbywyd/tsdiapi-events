@@ -1,7 +1,7 @@
 {
   "name": "@tsdiapi/events",
   "description": "Event handling plugin for TSDIAPI-Server with TypeDI integration and type-safe decorators.",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "main": "output/index.js",
   "types": "output/index.d.ts",
   "type": "module",
