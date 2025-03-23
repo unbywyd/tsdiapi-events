@@ -10,4 +10,5 @@ export declare class EventController<TEventPayloads extends Record<PropertyKey, 
 }
 export declare function dispatchEvent<TEventPayloads extends Record<PropertyKey, unknown>, K extends keyof TEventPayloads>(event: K, payload: TEventPayloads[K]): void;
 export declare function On<TEventPayloads extends Record<PropertyKey, unknown>, K extends keyof TEventPayloads>(event: K): MethodDecorator;
+export declare function onEvent<TEventPayloads extends Record<PropertyKey, unknown>, K extends keyof TEventPayloads>(event: K, handler: (payload: TEventPayloads[K]) => void): void;
 //# sourceMappingURL=events.d.ts.map

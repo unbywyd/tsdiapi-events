@@ -41,4 +41,7 @@ export function On(event) {
         return descriptor;
     };
 }
+export function onEvent(event, handler) {
+    Container.get(EventController).on(event, handler);
+}
 //# sourceMappingURL=events.js.map
