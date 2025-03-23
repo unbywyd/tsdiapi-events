@@ -1,30 +1,35 @@
 import "reflect-metadata";
 import type { AppContext, AppPlugin } from "@tsdiapi/server";
-import { EventController } from "./events.js";
+import { EventController, onEvent } from "./events.js";
 export { EventController, dispatchEvent, On } from "./events.js";
+import { FastifyInstance } from "fastify";
+
+declare module "fastify" {
+    interface FastifyInstance {
+        onEvent: typeof onEvent;
+        dispatchEvent: typeof dispatchEvent;
+    }
+}
 
 export type PluginOptions = {
-    autoloadGlobPath: string | false;
 }
-const defaultConfig: PluginOptions = {
-    autoloadGlobPath: "*.event{.ts,.js}",
-}
+
 
 class App implements AppPlugin {
     name = 'tsdiapi-events';
     config: PluginOptions;
-    bootstrapFilesGlobPath: string;
     context: AppContext;
+    services: AppPlugin['services'] = [];
     constructor(config?: PluginOptions) {
         this.config = { ...config };
-        this.bootstrapFilesGlobPath = this.config.autoloadGlobPath ? this.config.autoloadGlobPath : defaultConfig.autoloadGlobPath as string;
-        if (this.config.autoloadGlobPath === false) {
-            this.bootstrapFilesGlobPath = '';
-        }
     }
     async onInit(ctx: AppContext) {
         this.context = ctx;
-        this.context.container.get(EventController);
+        this.services = [
+            EventController
+        ];
+        ctx.fastify.decorate('onEvent', onEvent);
+        ctx.fastify.decorate('dispatchEvent', dispatchEvent);
     }
 }
 

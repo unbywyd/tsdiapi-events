@@ -51,3 +51,10 @@ export function On<TEventPayloads extends Record<PropertyKey, unknown>, K extend
         return descriptor;
     };
 }
+
+export function onEvent<TEventPayloads extends Record<PropertyKey, unknown>, K extends keyof TEventPayloads>(
+    event: K,
+    handler: (payload: TEventPayloads[K]) => void
+): void {
+    Container.get(EventController).on(event, handler);
+}
