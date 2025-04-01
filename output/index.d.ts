@@ -1,7 +1,7 @@
 import "reflect-metadata";
 import type { AppContext, AppPlugin } from "@tsdiapi/server";
 import { onEvent } from "./events.js";
-export { EventController, dispatchEvent, On } from "./events.js";
+export { EventController, dispatchEvent, On, onEvent } from "./events.js";
 declare module "fastify" {
     interface FastifyInstance {
         onEvent: typeof onEvent;

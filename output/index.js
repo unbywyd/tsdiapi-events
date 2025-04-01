@@ -1,6 +1,6 @@
 import "reflect-metadata";
 import { EventController, onEvent } from "./events.js";
-export { EventController, dispatchEvent, On } from "./events.js";
+export { EventController, dispatchEvent, On, onEvent } from "./events.js";
 class App {
     name = 'tsdiapi-events';
     config;
