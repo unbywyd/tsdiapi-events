@@ -89,28 +89,6 @@ createApp({
 
 ---
 
-## Configuration
-
-The plugin accepts the following option:
-
-| Option             | Type     | Default Value        | Description                                         |
-| ------------------ | -------- | -------------------- | --------------------------------------------------- |
-| `autoloadGlobPath` | `string` | `"*.event{.ts,.js}"` | Glob pattern for automatically loading event files. |
-
-Example:
-
-```typescript
-import TSDIAPIEventsPlugin from "@tsdiapi/events";
-
-createApp({
-  plugins: [
-    TSDIAPIEventsPlugin({
-      autoloadGlobPath: "*.event.ts", // Custom glob pattern
-    }),
-  ],
-});
-```
-
 ## Summary
 
 With **TSDIAPI-Events**, you can build scalable, event-driven APIs with minimal boilerplate. It integrates seamlessly with the TSDIAPI ecosystem, enabling better modularity, maintainability, and type-safe communication between components.

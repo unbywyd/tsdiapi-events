@@ -1,8 +1,8 @@
 import "reflect-metadata";
 import type { AppContext, AppPlugin } from "@tsdiapi/server";
 import { EventController, onEvent } from "./events.js";
-export { EventController, dispatchEvent, On } from "./events.js";
-import { FastifyInstance } from "fastify";
+export { EventController, dispatchEvent, On, onEvent } from "./events.js";
+import fastify, { FastifyInstance } from "fastify";
 
 declare module "fastify" {
     interface FastifyInstance {
@@ -13,7 +13,6 @@ declare module "fastify" {
 
 export type PluginOptions = {
 }
-
 
 class App implements AppPlugin {
     name = 'tsdiapi-events';
